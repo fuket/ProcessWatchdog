@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src\core">
+      <UniqueIdentifier>{27443eb2-ef49-43fd-a5ed-2b7086a99017}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\def">
+      <UniqueIdentifier>{3ef7c13f-8b7b-4d50-91f0-aa1622eb5c01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\service">
+      <UniqueIdentifier>{d7917939-75e9-4eba-81b1-7dec66331b96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\service\dll_proxy">
+      <UniqueIdentifier>{3f6d048b-6723-4fd5-856a-72b6d7e41bae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\service\module">
+      <UniqueIdentifier>{060e03fa-4ddf-415a-9ee1-80b9f1a8c1d3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="application.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dbg_help_proxy.cpp">
+      <Filter>src\service\dll_proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="mini_dump.cpp">
+      <Filter>src\service\module</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="application.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="def\watchdog.h">
+      <Filter>src\def</Filter>
+    </ClInclude>
+    <ClInclude Include="dbg_help_proxy.h">
+      <Filter>src\service\dll_proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="mini_dump.h">
+      <Filter>src\service\module</Filter>
+    </ClInclude>
+    <ClInclude Include="scoped_handle.h">
+      <Filter>src\service\module</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
