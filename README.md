@@ -1,8 +1,8 @@
 # Process Watchdog
 Watchdog sample to generate minidump
 
-# License
+## License
 Apache License v2
 
-# Related Website
+## Related Website
 https://www.resume-next.com/

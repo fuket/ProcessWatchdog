@@ -69,7 +69,6 @@ int main()
 	write_dump();
 
 	//To output a dump file containing exception information
-	
 	__try
 	{
 		int a = 1;
