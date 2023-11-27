@@ -5,6 +5,9 @@
 
 #include "../ProcessWatchdog/def/watchdog.h"
 
+/**
+	Output dump file with exception information
+*/
 int filter(unsigned int code, EXCEPTION_POINTERS *ep)
 {
 	const HWND hWatchdog = FindWindow(WATCHDOG_WINDOW_CLASS_NAME, WATCHDOG_WINDOW_NAME);
@@ -26,7 +29,7 @@ int filter(unsigned int code, EXCEPTION_POINTERS *ep)
 				exception_record = exception_record->ExceptionRecord;
 			}
 		}
-		wcscpy_s(info.dump_path, L".\\crash_dump.dmp");
+		wcscpy_s(info.dump_path, L".\\crash_dump_with_exception_info.dmp");
 		COPYDATASTRUCT copy_data;
 		copy_data.cbData = sizeof(ExceptionInfo);
 		copy_data.dwData = kMiniDumpWriteDump;
@@ -36,10 +39,37 @@ int filter(unsigned int code, EXCEPTION_POINTERS *ep)
 	return EXCEPTION_EXECUTE_HANDLER;
 }
 
+/**
+	Simply output a dump file
+*/
+void write_dump()
+{
+	const HWND hWatchdog = FindWindow(WATCHDOG_WINDOW_CLASS_NAME, WATCHDOG_WINDOW_NAME);
+	if (hWatchdog)
+	{
+		ExceptionInfo info;
+		info.process_id = GetCurrentProcessId();
+		info.thread_id = GetCurrentThreadId();
+		info.exception_record_count = 0;
+		wcscpy_s(info.dump_path, L".\\crash_dump.dmp");
+		COPYDATASTRUCT copy_data;
+		copy_data.cbData = sizeof(ExceptionInfo);
+		copy_data.dwData = kMiniDumpWriteDump;
+		copy_data.lpData = &info;
+		SendMessage(hWatchdog, WM_COPYDATA, (WPARAM)(HWND)nullptr, (LPARAM)(LPVOID)&copy_data);
+	}
+}
+
 int main()
 {
 	printf("ready...\r\n");
 	getchar();
+
+	//To simply output a dump file
+	write_dump();
+
+	//To output a dump file containing exception information
+	
 	__try
 	{
 		int a = 1;
@@ -53,5 +83,6 @@ int main()
 	}
 	printf("done.\n");
 	getchar();
+
 	return 0;
 }

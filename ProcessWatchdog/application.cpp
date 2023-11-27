@@ -9,7 +9,7 @@
 namespace {
 
 /**
-	ウィンドウを閉じる
+	Close window
 */
 void OnClose(HWND hwnd)
 {
@@ -17,7 +17,7 @@ void OnClose(HWND hwnd)
 }
 
 /**
-	ウィンドウを破棄する
+	Destroy window
 */
 void OnDestroy(HWND hwnd)
 {
@@ -25,7 +25,7 @@ void OnDestroy(HWND hwnd)
 }
 
 /**
-	データコピーが呼ばれたとき
+	When data copy is called
 */
 void OnCopyData(HWND hwnd, HWND wParam, PCOPYDATASTRUCT lParam)
 {
@@ -40,7 +40,7 @@ void OnCopyData(HWND hwnd, HWND wParam, PCOPYDATASTRUCT lParam)
 }
 
 /**
-	ウィンドウプロシージャ
+	Window procedure
 */
 LRESULT CALLBACK MainWindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
