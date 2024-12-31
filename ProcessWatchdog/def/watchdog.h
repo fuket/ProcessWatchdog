@@ -12,7 +12,8 @@ struct ExceptionInfo
 {
 	DWORD process_id;
 	DWORD thread_id;
-	int exception_record_count;
-	EXCEPTION_RECORD exception_record[16];
+	//int exception_record_count;
+	//EXCEPTION_RECORD exception_record[16];
+	EXCEPTION_POINTERS *ex_info;
 	wchar_t dump_path[MAX_PATH];
 };
