@@ -3,6 +3,8 @@
 
 #include <Windows.h>
 
+#include "def/watchdog.h"
+
 namespace watchdog {
 namespace service {
 namespace module {
@@ -10,7 +12,7 @@ namespace module {
 class MiniDump
 {
 public:
-	static bool MiniDumpWriteDump(const PCOPYDATASTRUCT data);
+	static bool MiniDumpWriteDump(const ExceptionInfo *ex_info);
 };
 
 } // namespace module

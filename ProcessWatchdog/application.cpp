@@ -34,7 +34,7 @@ void OnCopyData(HWND hwnd, HWND wParam, PCOPYDATASTRUCT lParam)
 	{
 	case kMiniDumpWriteDump:
 	default:
-		watchdog::service::module::MiniDump::MiniDumpWriteDump(data);
+		watchdog::service::module::MiniDump::MiniDumpWriteDump(static_cast<ExceptionInfo*>(data->lpData));
 		break;
 	}
 }
